@@ -1,0 +1,12 @@
+"2018-
+-01 23:01:54.000": Responded to agent "#JOIN" with "127.0.0.1"
+"2018-12-01 23:01:54.000": Responded to agent "127.0.0.1" with "$OK"
+"2018-
+-01 23:02:29.000": Responded to agent "#LIST" with "127.0.0.1"
+"2018-12-01 23:02:29.000": Responded to agent "127.0.0.1" with "list shown"
+"2018-
+-01 23:02:32.000": Responded to agent "#LOGT" with "127.0.0.1"
+"2018-12-01 23:02:32.000": No response is supplied to agent "127.0.0.1" (agent not active)
+"2018-
+-01 23:03:08.000": Responded to agent "#LOGT" with "127.0.0.1"
+"2018-12-01 23:03:08.000": No response is supplied to agent "127.0.0.1" (agent not active)

@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5EFFBFF225187D20045B454 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFBFE225187D20045B454 /* main.cpp */; };
+		C5EFFC71225525DB0045B454 /* Simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFC60225525DA0045B454 /* Simulator.cpp */; };
+		C5EFFC72225525DB0045B454 /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFC62225525DA0045B454 /* Memory.cpp */; };
+		C5EFFC73225525DB0045B454 /* CPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFC6C225525DA0045B454 /* CPU.cpp */; };
+		C5EFFC74225525DB0045B454 /* ALU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFC6E225525DA0045B454 /* ALU.cpp */; };
+		C5EFFC75225525DB0045B454 /* Stats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFC6F225525DA0045B454 /* Stats.cpp */; };
+		C5EFFC782255264A0045B454 /* BranchPred.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5EFFC772255264A0045B454 /* BranchPred.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +29,26 @@
 
 /* Begin PBXFileReference section */
 		C5EFFBFB225187D20045B454 /* project4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = project4; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5EFFBFE225187D20045B454 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C5EFFC5F225525DA0045B454 /* ALU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALU.h; sourceTree = "<group>"; };
+		C5EFFC60225525DA0045B454 /* Simulator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Simulator.cpp; sourceTree = "<group>"; };
+		C5EFFC61225525DA0045B454 /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory.h; sourceTree = "<group>"; };
+		C5EFFC62225525DA0045B454 /* Memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memory.cpp; sourceTree = "<group>"; };
+		C5EFFC63225525DA0045B454 /* pqueue.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = pqueue.mips; sourceTree = "<group>"; };
+		C5EFFC64225525DA0045B454 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		C5EFFC65225525DA0045B454 /* CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPU.h; sourceTree = "<group>"; };
+		C5EFFC66225525DA0045B454 /* nqueens.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = nqueens.mips; sourceTree = "<group>"; };
+		C5EFFC67225525DA0045B454 /* hash.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = hash.mips; sourceTree = "<group>"; };
+		C5EFFC68225525DA0045B454 /* prime.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = prime.mips; sourceTree = "<group>"; };
+		C5EFFC69225525DA0045B454 /* rand.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = rand.mips; sourceTree = "<group>"; };
+		C5EFFC6A225525DA0045B454 /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stats.h; sourceTree = "<group>"; };
+		C5EFFC6B225525DA0045B454 /* sssp.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = sssp.mips; sourceTree = "<group>"; };
+		C5EFFC6C225525DA0045B454 /* CPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPU.cpp; sourceTree = "<group>"; };
+		C5EFFC6D225525DA0045B454 /* qsort.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = qsort.mips; sourceTree = "<group>"; };
+		C5EFFC6E225525DA0045B454 /* ALU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ALU.cpp; sourceTree = "<group>"; };
+		C5EFFC6F225525DA0045B454 /* Stats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stats.cpp; sourceTree = "<group>"; };
+		C5EFFC70225525DA0045B454 /* regslarge.mips */ = {isa = PBXFileReference; lastKnownFileType = file; path = regslarge.mips; sourceTree = "<group>"; };
+		C5EFFC762255264A0045B454 /* BranchPred.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BranchPred.h; sourceTree = "<group>"; };
+		C5EFFC772255264A0045B454 /* BranchPred.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BranchPred.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +65,7 @@
 		C5EFFBF2225187D20045B454 = {
 			isa = PBXGroup;
 			children = (
-				C5EFFBFD225187D20045B454 /* project4 */,
+				C5EFFBFD225187D20045B454 /* project4_files */,
 				C5EFFBFC225187D20045B454 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +78,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C5EFFBFD225187D20045B454 /* project4 */ = {
+		C5EFFBFD225187D20045B454 /* project4_files */ = {
 			isa = PBXGroup;
 			children = (
-				C5EFFBFE225187D20045B454 /* main.cpp */,
+				C5EFFC772255264A0045B454 /* BranchPred.cpp */,
+				C5EFFC762255264A0045B454 /* BranchPred.h */,
+				C5EFFC6E225525DA0045B454 /* ALU.cpp */,
+				C5EFFC5F225525DA0045B454 /* ALU.h */,
+				C5EFFC6C225525DA0045B454 /* CPU.cpp */,
+				C5EFFC65225525DA0045B454 /* CPU.h */,
+				C5EFFC64225525DA0045B454 /* Debug.h */,
+				C5EFFC67225525DA0045B454 /* hash.mips */,
+				C5EFFC62225525DA0045B454 /* Memory.cpp */,
+				C5EFFC61225525DA0045B454 /* Memory.h */,
+				C5EFFC66225525DA0045B454 /* nqueens.mips */,
+				C5EFFC63225525DA0045B454 /* pqueue.mips */,
+				C5EFFC68225525DA0045B454 /* prime.mips */,
+				C5EFFC6D225525DA0045B454 /* qsort.mips */,
+				C5EFFC69225525DA0045B454 /* rand.mips */,
+				C5EFFC70225525DA0045B454 /* regslarge.mips */,
+				C5EFFC60225525DA0045B454 /* Simulator.cpp */,
+				C5EFFC6B225525DA0045B454 /* sssp.mips */,
+				C5EFFC6F225525DA0045B454 /* Stats.cpp */,
+				C5EFFC6A225525DA0045B454 /* Stats.h */,
 			);
-			path = project4;
+			path = project4_files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +161,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5EFFBFF225187D20045B454 /* main.cpp in Sources */,
+				C5EFFC782255264A0045B454 /* BranchPred.cpp in Sources */,
+				C5EFFC73225525DB0045B454 /* CPU.cpp in Sources */,
+				C5EFFC72225525DB0045B454 /* Memory.cpp in Sources */,
+				C5EFFC74225525DB0045B454 /* ALU.cpp in Sources */,
+				C5EFFC71225525DB0045B454 /* Simulator.cpp in Sources */,
+				C5EFFC75225525DB0045B454 /* Stats.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

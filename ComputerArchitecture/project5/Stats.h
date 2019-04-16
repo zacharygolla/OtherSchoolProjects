@@ -1,4 +1,4 @@
-#ifndef __STATS
+#ifndef __STATS_H
 #define __STATS_H
 #include <iostream>
 #include "Debug.h"
@@ -16,34 +16,27 @@ class Stats {
     int memops;
     int branches;
     int taken;
-    int RAW_HAZARDS;
-    int EXEOne;
-    int EXETwo;
-    int MEMOne;
-    int MEMTwo;
-    int stalls;
+    int stall;
 
     int resultReg[PIPESTAGES];
-    int resultStage[PIPESTAGES];
 
   public:
     Stats();
 
     void clock();
+
     void flush(int count);
-    void registerSrc(int r, PIPESTAGE stage);
-    void registerDest(int r, PIPESTAGE stage);
+
     void pipeStall(int n);
 
-    // counters
+
+
+    void registerSrc(int r);
+    void registerDest(int r);
+
     void countMemOp() { memops++; }
     void countBranch() { branches++; }
     void countTaken() { taken++; }
-    void countRawHazards() { RAW_HAZARDS++; }
-    void countEXEOne() { EXEOne++; }
-    void countEXETwo() { EXETwo++; }
-    void countMEMOne() { MEMOne++; }
-    void countMEMTwo() { MEMTwo++; }
 
     // getters
     long long getCycles() { return cycles; }
@@ -52,12 +45,7 @@ class Stats {
     int getMemOps() { return memops; }
     int getBranches() { return branches; }
     int getTaken() { return taken; }
-    int getRawHazards() { return RAW_HAZARDS; }
-    int getEXEOne() { return EXEOne; }
-    int getEXETwo() { return EXETwo; }
-    int getMEMOne() { return MEMOne; }
-    int getMEMTwo() { return MEMTwo; }
-    int getStalls() { return stalls; }
+    int getStalls() { return stall; }
 
   private:
     void bubble();

@@ -1,3 +1,11 @@
+/******************************
+ * CacheStats.h submitted by: enter your first and last name and net ID
+ * CS 3339 - Spring 2019
+ * Project 5 Data Cache Simulation
+ * Copyright 2019, all rights reserved
+ * Updated by Lee B. Hinkle based on prior work by Martin Burtscher and Molly O'Neil
+ ******************************/
+
 #ifndef __CACHE_STATS_H
 #define __CACHE_STATS_H
 
@@ -43,6 +51,7 @@ struct CacheMoney{
 
 class CacheStats {
   private:
+
     int loads;
     int stores;
     int load_misses;
@@ -51,7 +60,6 @@ class CacheStats {
 
     uint32_t index;
     uint32_t tag;
-
   public:
     CacheStats();
     int access(uint32_t, ACCESS_TYPE);

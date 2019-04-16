@@ -1,7 +1,5 @@
-#!/bin/bash
-
-echo Starting Game
-g++ main.cpp game.cpp game.h
-
+echo Building Files
+g++ main.cpp
+echo Executing Game
 ./a.out 5
-echo Game Closed
+echo Game Exited

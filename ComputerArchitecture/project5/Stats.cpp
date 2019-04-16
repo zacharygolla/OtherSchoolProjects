@@ -1,7 +1,7 @@
 /******************************
-* Name: Connor Oldmixon, cio12
-* CS 3339 - Fall 2018
-******************************/
+ * Your Name Goes Here
+ * CS 3339 - Semester Goes Here
+ ******************************/
 #include "Stats.h"
 
 Stats::Stats() {
@@ -13,85 +13,57 @@ Stats::Stats() {
   branches = 0;
   taken = 0;
 
-  RAW_HAZARDS = 0;
-  EXEOne = 0;
-  EXETwo = 0;
-  MEMOne = 0;
-  MEMTwo = 0;
-
   for(int i = IF1; i < PIPESTAGES; i++) {
-    resultReg[i] =  -1;
-    resultStage[i] = -1;
+    resultReg[i] = -1;
   }
 }
 
 void Stats::clock() {
   cycles++;
 
+  // advance all pipeline flops
   for(int i = WB; i > IF1; i--) {
     resultReg[i] = resultReg[i-1];
-    resultStage[i] = resultStage[i-1];
   }
+  // inject no-op into IF1
   resultReg[IF1] = -1;
-  resultStage[IF1] = -1;
 }
 
-void Stats::registerSrc(int r, PIPESTAGE stage) {
-int value = 0;
-for(int i = EXE1; i < WB; i++){
-    if(r == resultReg[i] && (r != 0)){
-     
-      if(i == EXE1){
-        countEXEOne();
-      }
-      else if(i == EXE2){
-        countEXETwo();
-      }
-      else if(i == MEM1){
-        countMEMOne();
-      }
-      else if(i == MEM2){
-        countMEMTwo();
-      }
-
-      value = (resultStage[i] - i) - (stage - ID);
-
-      for(int j = 0; j < value; j++){
+void Stats::registerSrc(int r) {
+  int inserting_bubbles;
+  for(int i = EXE1; i < WB; i++) {
+    if (resultReg[i] == r && r != 0) {
+      inserting_bubbles = WB - i;
+      while (inserting_bubbles > 0) {
         bubble();
+        inserting_bubbles--;
       }
-
-      countRawHazards();
-      
       break;
     }
   }
 }
 
-void Stats::registerDest(int r, PIPESTAGE stage) {
+void Stats::registerDest(int r) {
   resultReg[ID] = r;
-  resultStage[ID] = stage;
 }
 
-void Stats::pipeStall(int n){
-  stalls += n;
-  cycles += n;
-}
-
-void Stats::flush(int count) { 
-  for(int j = 0; j < count; j++){
+void Stats::flush(int count) { // count == how many ops to flush
+  for (int i = 0; i < count; i ++) {
     flushes++;
     clock();
   }
 }
 
-void Stats::bubble(){
-  cycles++;
-  bubbles++;
+void Stats::pipeStall(int n){
+  stall += n;
+  cycles += n;
+}
 
-  for(int i = WB; i > EXE1; i--){
-      resultReg[i] = resultReg[i-1];
-      resultStage[i] = resultStage[i-1];
-    }
+void Stats::bubble() {
+  bubbles++;
+  cycles++;
+  for(int i = WB; i >= EXE2; i--) {
+    resultReg[i] = resultReg[i-1];
+  }
   resultReg[EXE1] = -1;
-  resultStage[EXE1] = -1;
 }

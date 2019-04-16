@@ -1,3 +1,70 @@
 Starting Round:
+Player 2: hand 0
+Player 2: hand 6
+Hand: 0 6
+Player 2: hand 0 6
+Player 2: discards 0
+Player 1: hand 0
+Player 1: hand 0
+Hand: 0 0
+Player 1: hand 0 0
+Player 1: Wins!
+Player exits round
+Dealer exits round
+Player exits round
+Player exits round
+Player exits round
 Starting Round:
+Player 2: hand 3
+Player 2: hand 7
+Hand: 3 7
+Player 2: hand 3 7
+Player 2: discards 3
+Player 1: hand 9
+Player 1: hand 3
+Hand: 9 3
+Player 1: hand 9 3
+Player 1: discards 9
+Player 2: hand 3
+Player 2: hand 9
+Hand: 3 9
+Player 2: hand 3 9
+Player 2: discards 9
+Player 1: hand 9
+Player 1: hand 9
+Hand: 9 9
+Player 1: hand 9 9
+Player 1: Wins!
+Dealer exits round
+
+
+Player exits round
+Player exits round
+
+Player exits round
 Starting Round:
+Player 2: hand 8
+Player 2: hand 10
+Hand: 8 10
+Player 2: hand 8 10
+Player 2: discards 10
+Player 1: hand 1
+Player 1: hand 10
+Hand: 1 10
+Player 1: hand 1 10
+Player 1: discards 1
+Player 2: hand 8
+Player 2: hand 1
+Hand: 8 1
+Player 2: hand 8 1
+Player 2: discards 1
+Player 1: hand 1
+Player 1: hand 1
+Hand: 1 1
+Player 1: hand 1 1
+Player 1: Wins!
+Player exits round
+Dealer exits round
+Player exits round
+Player exits round
+Player exits round

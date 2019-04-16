@@ -9,6 +9,9 @@
 #include "Memory.h"
 #include "ALU.h"
 #include "Debug.h"
+#include "Stats.h"
+#include "CacheStats.h"
+
 using namespace std;
 
 class CPU {
@@ -28,6 +31,10 @@ class CPU {
     uint32_t hi, lo;
 
     ALU alu;
+	
+	  Stats stats;
+
+    CacheStats cache;
     
     Memory &iMem;
     Memory &dMem;

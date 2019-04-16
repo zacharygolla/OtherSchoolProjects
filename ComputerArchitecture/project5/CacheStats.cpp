@@ -1,12 +1,14 @@
 /******************************
- * * Name: Connor Oldmixon, cio12
- * * CS 3339 - Fall 2018
- * ******************************/
+ * CacheStats.cpp submitted by: enter your first and last name and net ID
+ * CS 3339 - Spring 2019
+ * Project 4 Branch Predictor
+ * Copyright 2019, all rights reserved
+ * Updated by Lee B. Hinkle based on prior work by Martin Burtscher and Molly O'Neil
+ ******************************/
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
 #include "CacheStats.h"
-#include "Stats.h"
 using namespace std;
 
 CacheStats::CacheStats() {
@@ -26,8 +28,10 @@ CacheStats::CacheStats() {
   load_misses = 0;
   store_misses = 0;
   writebacks = 0;
+
   index = 0;
   tag = 0;
+  /* TODO: your code here */
 
   for(int i = 0; i < SETS; i++){
     for(int j = 0; j < WAYS; j++){
@@ -40,7 +44,7 @@ CacheStats::CacheStats() {
 }
 
 int CacheStats::access(uint32_t addr, ACCESS_TYPE type) {
-  if(!CACHE_EN) { // cache off
+  if(!CACHE_EN) { // cache is off
     return (type == LOAD) ? READ_LATENCY : WRITE_LATENCY;
   }
 
@@ -84,7 +88,7 @@ int CacheStats::access(uint32_t addr, ACCESS_TYPE type) {
         store_misses++;
       }
       else{
-	theCache[i][rr].dirty = false;
+	      theCache[i][rr].dirty = false;
         load_misses++;
       }
           
@@ -101,7 +105,7 @@ int CacheStats::access(uint32_t addr, ACCESS_TYPE type) {
 }
 
 void CacheStats::printFinalStats() {
-
+  /* TODO: your code here (don't forget to drain the cache of writebacks) */
   for(int i = 0; i < SETS; i++){
     for(int j = 0; j < WAYS; j++){
       if(theCache[i][j].dirty){
@@ -121,5 +125,4 @@ void CacheStats::printFinalStats() {
   cout << "Writebacks: " << writebacks << endl;
   cout << "Hit Ratio: " << fixed << setprecision(1) << 100.0 * (accesses - misses) / accesses;
   cout << "%" << endl;
-
 }

@@ -1,5 +1,5 @@
 /******************************
- * CacheStats.h submitted by: enter your first and last name and net ID
+ * CacheStats.h submitted by: Zachary Golla ztg5
  * CS 3339 - Spring 2019
  * Project 5 Data Cache Simulation
  * Copyright 2019, all rights reserved
@@ -43,7 +43,7 @@ using namespace std;
 
 enum ACCESS_TYPE { LOAD, STORE };
 
-struct CacheMoney{
+struct Cache{
   bool valid, dirty;
   int roundRobin;
   uint32_t tag;
@@ -51,7 +51,6 @@ struct CacheMoney{
 
 class CacheStats {
   private:
-
     int loads;
     int stores;
     int load_misses;
@@ -61,10 +60,11 @@ class CacheStats {
     uint32_t index;
     uint32_t tag;
   public:
+    Cache cache[SETS][WAYS];
     CacheStats();
     int access(uint32_t, ACCESS_TYPE);
     void printFinalStats();
-    CacheMoney theCache[SETS][WAYS];
+    
 };
 
 #endif

@@ -12,11 +12,7 @@ class Stats {
     long long cycles;
     int flushes;
     int bubbles;
-
-    int memops;
-    int branches;
-    int taken;
-    int stall;
+    int stalls;
 
     int resultReg[PIPESTAGES];
 
@@ -24,28 +20,16 @@ class Stats {
     Stats();
 
     void clock();
-
     void flush(int count);
-
     void pipeStall(int n);
-
-
-
     void registerSrc(int r);
     void registerDest(int r);
-
-    void countMemOp() { memops++; }
-    void countBranch() { branches++; }
-    void countTaken() { taken++; }
 
     // getters
     long long getCycles() { return cycles; }
     int getFlushes() { return flushes; }
     int getBubbles() { return bubbles; }
-    int getMemOps() { return memops; }
-    int getBranches() { return branches; }
-    int getTaken() { return taken; }
-    int getStalls() { return stall; }
+    int getStalls() { return stalls; }
 
   private:
     void bubble();

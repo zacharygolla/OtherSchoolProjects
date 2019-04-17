@@ -13,7 +13,7 @@ const int NUM_PLAYERS = 3;
 const int NUM_CARDS = 52;
 
 int current_round = 0,
-    whos_turn = 0;
+    whos_turn = 1;
 bool win = false;
 
 vector<int> card_deck;
@@ -32,6 +32,7 @@ void playRound();
 void shuffleDeck();
 void dealCards();
 void useDeck(long, pair<int,int>);
+void putPlayersCardsBack();
 
 //Thread Variables
 pthread_mutex_t mutex_useDeck = PTHREAD_MUTEX_INITIALIZER;
@@ -90,6 +91,7 @@ void runGame() {
         playRound();
         current_round++;
         win = false;
+        putPlayersCardsBack();
     }
     
     cout << "Game Ran" << endl;
@@ -111,7 +113,7 @@ void playRound() {
     //create player thread
     cout << "Creating Player Threads" << endl;
     for(int i = 0; i < NUM_PLAYERS; i ++) {
-        success_check = pthread_create(&player_thread[i], NULL, &playerFunction, (void *) i);
+        success_check = pthread_create(&player_thread[i], NULL, &playerFunction, (void *) (i + 1));
         if(success_check != 0) {
             cout << "Something is wrong" << endl;
         }
@@ -229,15 +231,15 @@ void useDeck(long id, pair<int,int> hand) {
         }
         else {
             // randomly select discard and put it back in the deck
-            int discard = rand()%2;
+            int discard = rand() % 2;
             if( discard == 0 ) {
                 log_file << "Player " << id << ": discards " << hand.first << endl;
-                card_deck.push_back(hand.first);  // put card back in deck
+                card_deck.insert(card_deck.begin(), hand.first);  // put card back in deck
                 hand.first = hand.second; // set card1 to remaining card value
             }     
             else {
                 log_file << "Player " << id << ": discards " << hand.second << endl;
-                card_deck.push_back(hand.second);
+                card_deck.insert(card_deck.begin(), hand.second);
             }   
 
          // print the contents of the deck
@@ -245,7 +247,7 @@ void useDeck(long id, pair<int,int> hand) {
         }      
     }  
     whos_turn++; // inc turn so next player may use the deck
-    if( whos_turn > NUM_PLAYERS - 1) 
+    if( whos_turn > NUM_PLAYERS) 
         whos_turn = 1;      // if player3 went, move to player1
     pthread_cond_broadcast(&condition_var); // broadcast that deck is available
 }
@@ -268,3 +270,9 @@ void dealCards() { // the dealer deals one card into each hand
     player3_hand.first = card_deck.back();
     card_deck.pop_back();         
 } // end function
+
+void putPlayersCardsBack() {
+    card_deck.push_back(player1_hand.first);
+    card_deck.push_back(player2_hand.first);
+    card_deck.push_back(player3_hand.first);
+}

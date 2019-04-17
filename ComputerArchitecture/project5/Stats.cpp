@@ -8,10 +8,7 @@ Stats::Stats() {
   cycles = PIPESTAGES - 1; // pipeline startup cost
   flushes = 0;
   bubbles = 0;
-
-  memops = 0;
-  branches = 0;
-  taken = 0;
+  stalls = 0;
 
   for(int i = IF1; i < PIPESTAGES; i++) {
     resultReg[i] = -1;
@@ -55,7 +52,7 @@ void Stats::flush(int count) { // count == how many ops to flush
 }
 
 void Stats::pipeStall(int n){
-  stall += n;
+  stalls += n;
   cycles += n;
 }
 

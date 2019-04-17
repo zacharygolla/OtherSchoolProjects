@@ -1,7 +1,7 @@
 /******************************
- * CacheStats.cpp submitted by: enter your first and last name and net ID
+ * CacheStats.cpp submitted by: Zachary Golla ztg
  * CS 3339 - Spring 2019
- * Project 4 Branch Predictor
+ * Project 5 Data Cache Simulation
  * Copyright 2019, all rights reserved
  * Updated by Lee B. Hinkle based on prior work by Martin Burtscher and Molly O'Neil
  ******************************/
@@ -29,16 +29,17 @@ CacheStats::CacheStats() {
   store_misses = 0;
   writebacks = 0;
 
+  //initialize index and tag to 0
   index = 0;
   tag = 0;
-  /* TODO: your code here */
 
+  //initiate the cache
   for(int i = 0; i < SETS; i++){
     for(int j = 0; j < WAYS; j++){
-      theCache[i][j].valid = false;
-      theCache[i][j].dirty = false;
-      theCache[i][j].roundRobin = 0;
-      theCache[i][j].tag = 0;
+      cache[i][j].valid = false;
+      cache[i][j].dirty = false;
+      cache[i][j].roundRobin = 0;
+      cache[i][j].tag = 0;
     }
   }
 }
@@ -53,50 +54,44 @@ int CacheStats::access(uint32_t addr, ACCESS_TYPE type) {
   int count = 0;
   int rr = 0;
 
-  if(type == STORE){
+  if(type == STORE)
     stores++;
-  }
-  else{
+  else
     loads++;
-  }
 
-
-  for(int i = 0; i < SETS; i++){
-    if(i == index){
-      for(int j = 0; j < WAYS; j++){
-        //if a hit assign values accordingly
-        if(theCache[i][j].tag == tag && theCache[i][j].valid){
+  for(int i = 0; i < SETS; i++) {
+    if(i == index) {
+      for(int j = 0; j < WAYS; j++) {
+        if(cache[i][j].tag == tag && cache[i][j].valid){
           if(type == STORE)
-            theCache[i][j].dirty = true;
-          
+            cache[i][j].dirty = true;
           return 0;
         }
       }
 
-      rr = theCache[i][0].roundRobin;
-      //If the block has a dirty bit increment writebacks and increase count number
-      if(theCache[i][rr].dirty == true){
+      rr = cache[i][0].roundRobin;
+      if(cache[i][rr].dirty == true) {
         writebacks++;
         count += 10;
       }
 
       count += 30;
-      theCache[i][rr].tag = tag;
-      theCache[i][rr].valid = true;
-      if(type == STORE){
-        theCache[i][rr].dirty = true;
+      cache[i][rr].tag = tag;
+      cache[i][rr].valid = true;
+      if(type == STORE) {
+        cache[i][rr].dirty = true;
         store_misses++;
       }
-      else{
-	      theCache[i][rr].dirty = false;
+      else {
+	      cache[i][rr].dirty = false;
         load_misses++;
       }
           
-      if(theCache[i][0].roundRobin >= 3){
-        theCache[i][0].roundRobin = 0;
+      if(cache[i][0].roundRobin >= 3){
+        cache[i][0].roundRobin = 0;
       }
-      else{
-        theCache[i][0].roundRobin++;
+      else {
+        cache[i][0].roundRobin++;
       }
 
       return count;
@@ -108,7 +103,7 @@ void CacheStats::printFinalStats() {
   /* TODO: your code here (don't forget to drain the cache of writebacks) */
   for(int i = 0; i < SETS; i++){
     for(int j = 0; j < WAYS; j++){
-      if(theCache[i][j].dirty){
+      if(cache[i][j].dirty){
         writebacks++;
       }
     }

@@ -157,19 +157,15 @@ void CPU::decode() {
             break;
     case 0x04: D(cout << "beq " << regNames[rs] << ", " << regNames[rt] << ", " << pc + (simm << 2));
 			      stats.registerSrc(rs); stats.registerSrc(rt);
-            stats.countBranch();
             if(regFile[rs]==regFile[rt]) {
                pc = pc + (simm << 2);
-				       stats.countTaken();
                stats.flush(2);
             }
             break;
     case 0x05: D(cout << "bne " << regNames[rs] << ", " << regNames[rt] << ", " << pc + (simm << 2));
 			      stats.registerSrc(rs); stats.registerSrc(rt);
-            stats.countBranch();
             if(regFile[rs]!=regFile[rt]) {
                 pc = pc + (simm << 2);
-				        stats.countTaken();
                 stats.flush(2);
             }
             break;
@@ -211,7 +207,6 @@ void CPU::decode() {
             aluOp = ADD;
             aluSrc1 = regFile[rs]; stats.registerSrc(rs);
             aluSrc2 = simm;
-			      stats.countMemOp();
             stats.pipeStall(cache.access((regFile[rs] + simm), LOAD)); 
             break;
     case 0x2b: D(cout << "sw " << regNames[rt] << ", " << dec << simm << "(" << regNames[rs] << ")");
@@ -221,7 +216,6 @@ void CPU::decode() {
             aluSrc1 = regFile[rs]; stats.registerSrc(rs);
             aluSrc2 = simm;
             storeData = regFile[rt]; stats.registerSrc(rt);
-			      stats.countMemOp();
             stats.pipeStall(cache.access((regFile[rs] + simm), STORE));
             break;
     default: cerr << "unimplemented instruction: pc = 0x" << hex << pc - 4 << endl;

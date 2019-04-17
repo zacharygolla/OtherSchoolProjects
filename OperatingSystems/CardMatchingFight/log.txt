@@ -1,9 +1,55 @@
 Starting Round:
+Dealer exits round
+Player 1: hand 0
+Player 1: hand 4
+Hand: 0 4
+Player 1: hand 0 4
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 6
+Hand: 0 6
+Player 2: hand 0 6
+Player 2: discards 6
+Player 3: hand 0
+Player 3: hand 9
+Hand: 0 9
+Player 3: hand 0 9
+Player 3: discards 9
+Player 1: hand 0
+Player 1: hand 3
+Hand: 0 3
+Player 1: hand 0 3
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 12
+Hand: 0 12
+Player 2: hand 0 12
+Player 2: discards 12
+Player 3: hand 0
+Player 3: hand 12
+Hand: 0 12
+Player 3: hand 0 12
+Player 3: discards 12
 Player 1: hand 0
 Player 1: hand 2
 Hand: 0 2
 Player 1: hand 0 2
 Player 1: discards 2
+Player 2: hand 0
+Player 2: hand 4
+Hand: 0 4
+Player 2: hand 0 4
+Player 2: discards 4
+Player 3: hand 0
+Player 3: hand 4
+Hand: 0 4
+Player 3: hand 0 4
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 10
+Hand: 0 10
+Player 1: hand 0 10
+Player 1: discards 10
 Player 2: hand 0
 Player 2: hand 11
 Hand: 0 11
@@ -13,160 +59,229 @@ Player 3: hand 0
 Player 3: hand 8
 Hand: 0 8
 Player 3: hand 0 8
-Player 3: discards 8
-Player 1: hand 0
-Player 1: hand 4
-Hand: 0 4
-Player 1: hand 0 4
-Player 1: discards 4
-Player 2: hand 0
-Player 2: hand 12
-Hand: 0 12
-Player 2: hand 0 12
-Player 2: discards 0
-Player 3: hand 0
-Player 3: hand 10
-Hand: 0 10
-Player 3: hand 0 10
 Player 3: discards 0
 Player 1: hand 0
-Player 1: hand 7
+Player 1: hand 8
+Hand: 0 8
+Player 1: hand 0 8
+Player 1: discards 8
+Player 2: hand 0
+Player 2: hand 9
+Hand: 0 9
+Player 2: hand 0 9
+Player 2: discards 9
+Player 3: hand 0
+Player 3: hand 5
+Hand: 0 5
+Player 3: hand 0 5
+Player 3: discards 5
+Player 1: hand 0
+Player 1: hand 9
+Hand: 0 9
+Player 1: hand 0 9
+Player 1: discards 9
+Player 2: hand 0
+Player 2: hand 9
+Hand: 0 9
+Player 2: hand 0 9
+Player 2: discards 9
+Player 3: hand 0
+Player 3: hand 3
+Hand: 0 3
+Player 3: hand 0 3
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 2
+Hand: 0 2
+Player 1: hand 0 2
+Player 1: discards 2
+Player 2: hand 0
+Player 2: hand 5
+Hand: 0 5
+Player 2: hand 0 5
+Player 2: discards 0
+Player 3: hand 0
+Player 3: hand 9
+Hand: 0 9
+Player 3: hand 0 9
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 9
+Hand: 0 9
+Player 1: hand 0 9
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 6
+Hand: 0 6
+Player 2: hand 0 6
+Player 2: discards 0
+Player 3: hand 0
+Player 3: hand 3
+Hand: 0 3
+Player 3: hand 0 3
+Player 3: discards 3
+Player 1: hand 0
+Player 1: hand 12
+Hand: 0 12
+Player 1: hand 0 12
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 8
+Hand: 0 8
+Player 2: hand 0 8
+Player 2: discards 8
+Player 3: hand 0
+Player 3: hand 8
+Hand: 0 8
+Player 3: hand 0 8
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 10
+Hand: 0 10
+Player 1: hand 0 10
+Player 1: discards 10
+Player 2: hand 0
+Player 2: hand 6
+Hand: 0 6
+Player 2: hand 0 6
+Player 2: discards 6
+Player 3: hand 0
+Player 3: hand 7
 Hand: 0 7
-Player 1: hand 0 7
+Player 3: hand 0 7
+Player 3: discards 7
+Player 1: hand 0
+Player 1: hand 3
+Hand: 0 3
+Player 1: hand 0 3
 Player 1: discards 0
 Player 2: hand 0
 Player 2: hand 9
 Hand: 0 9
 Player 2: hand 0 9
+Player 2: discards 9
+Player 3: hand 0
+Player 3: hand 6
+Hand: 0 6
+Player 3: hand 0 6
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 12
+Hand: 0 12
+Player 1: hand 0 12
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 5
+Hand: 0 5
+Player 2: hand 0 5
 Player 2: discards 0
 Player 3: hand 0
-Player 3: hand 12
-Hand: 0 12
-Player 3: hand 0 12
-Player 3: discards 12
+Player 3: hand 8
+Hand: 0 8
+Player 3: hand 0 8
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 5
+Hand: 0 5
+Player 1: hand 0 5
+Player 1: discards 5
+Player 2: hand 0
+Player 2: hand 9
+Hand: 0 9
+Player 2: hand 0 9
+Player 2: discards 9
+Player 3: hand 0
+Player 3: hand 9
+Hand: 0 9
+Player 3: hand 0 9
+Player 3: discards 0
+Player 1: hand 0
+Player 1: hand 4
+Hand: 0 4
+Player 1: hand 0 4
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 1
+Hand: 0 1
+Player 2: hand 0 1
+Player 2: discards 0
+Player 3: hand 0
+Player 3: hand 7
+Hand: 0 7
+Player 3: hand 0 7
+Player 3: discards 7
+Player 1: hand 0
+Player 1: hand 11
+Hand: 0 11
+Player 1: hand 0 11
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 1
+Hand: 0 1
+Player 2: hand 0 1
+Player 2: discards 0
+Player 3: hand 0
+Player 3: hand 8
+Hand: 0 8
+Player 3: hand 0 8
+Player 3: discards 8
+Player 1: hand 0
+Player 1: hand 9
+Hand: 0 9
+Player 1: hand 0 9
+Player 1: discards 0
+Player 2: hand 0
+Player 2: hand 11
+Hand: 0 11
+Player 2: hand 0 11
+Player 2: discards 0
+Player 3: hand 0
+Player 3: hand 11
+Hand: 0 11
+Player 3: hand 0 11
+Player 3: discards 0
 Player 1: hand 0
 Player 1: hand 1
 Hand: 0 1
 Player 1: hand 0 1
-Player 1: discards 0
+Player 1: discards 1
 Player 2: hand 0
 Player 2: hand 0
 Hand: 0 0
 Player 2: hand 0 0
 Player 2: Wins!
 Player exits round
-Dealer exits round
 Player exits round
-Dealer exits round
-Dealer exits round
+Player exits round
+Player exits round
 Starting Round:
-Player 1: hand 1
-Player 1: hand 1
-Hand: 1 1
-Player 1: hand 1 1
+Dealer exits round
+Player 1: hand 0
+Player 1: hand 0
+Hand: 0 0
+Player 1: hand 0 0
 Player 1: Wins!
-Player exits roundDealer exits round
 Player exits round
 Player exits round
 Player exits round
 Starting Round:
-Player 1: hand 2
-Player 1: hand 7
-Hand: 2 7
-Player 1: hand 2 7
-Player 1: discards 2
-Player 2: hand 8
-Player 2: hand 6
-Hand: 8 6
-Player 2: hand 8 6
-Player 2: discards 8
-Player 3: hand 2
+Dealer exits round
+Player 1: hand 12
+Player 1: hand 9
+Hand: 12 9
+Player 1: hand 12 9
+Player 1: discards 9
+Player 2: hand 2
+Player 2: hand 0
+Hand: 2 0
+Player 2: hand 2 0
+Player 2: discards 2
 Player 3: hand 9
-Hand: 2 9
-Player 3: hand 2 9
-Player 3: discards 2
-Player 1: hand 2
-Player 1: hand 3
-Hand: 2 3
-Player 1: hand 2 3
-Player 1: discards 3
-Player 2: hand 8
-Player 2: hand 0
-Hand: 8 0
-Player 2: hand 8 0
-Player 2: discards 8
-Player 3: hand 2
-Player 3: hand 10
-Hand: 2 10
-Player 3: hand 2 10
-Player 3: discards 2
-Player 1: hand 2
-Player 1: hand 8
-Hand: 2 8
-Player 1: hand 2 8
-Player 1: discards 2
-Player 2: hand 8
-Player 2: hand 1
-Hand: 8 1
-Player 2: hand 8 1
-Player 2: discards 8
-Player 3: hand 2
-Player 3: hand 11
-Hand: 2 11
-Player 3: hand 2 11
-Player 3: discards 2
-Player 1: hand 2
-Player 1: hand 0
-Hand: 2 0
-Player 1: hand 2 0
-Player 1: discards 2
-Player 2: hand 8
-Player 2: hand 3
-Hand: 8 3
-Player 2: hand 8 3
-Player 2: discards 8
-Player 3: hand 2
-Player 3: hand 10
-Hand: 2 10
-Player 3: hand 2 10
-Player 3: discards 2
-Player 1: hand 2
-Player 1: hand 0
-Hand: 2 0
-Player 1: hand 2 0
-Player 1: discards 0
-Player 2: hand 8
-Player 2: hand 7
-Hand: 8 7
-Player 2: hand 8 7
-Player 2: discards 8
-Player 3: hand 2
-Player 3: hand 7
-Hand: 2 7
-Player 3: hand 2 7
-Player 3: discards 2
-Player 1: hand 2
-Player 1: hand 0
-Hand: 2 0
-Player 1: hand 2 0
-Player 1: discards 0
-Player 2: hand 8
-Player 2: hand 0
-Hand: 8 0
-Player 2: hand 8 0
-Player 2: discards 0
-Player 3: hand 2
-Player 3: hand 4
-Hand: 2 4
-Player 3: hand 2 4
-Player 3: discards 4
-Player 1: hand 2
-Player 1: hand 2
-Hand: 2 2
-Player 1: hand 2 2
-Player 1: Wins!
+Player 3: hand 9
+Hand: 9 9
+Player 3: hand 9 9
+Player 3: Wins!
 Player exits round
-Dealer exits round
 Player exits round
 Player exits round
 Player exits round

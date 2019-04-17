@@ -37,7 +37,6 @@ void putPlayersCardsBack();
 //Thread Variables
 pthread_mutex_t mutex_useDeck = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t condition_var = PTHREAD_COND_INITIALIZER;
-pthread_mutex_t mutex_dealerExit = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t cond_win = PTHREAD_COND_INITIALIZER;
 pthread_t player_thread[NUM_PLAYERS];
 pthread_t dealer_thread;
@@ -136,14 +135,11 @@ void * dealerFunction(void * arg) {
     long id = 0;       // identify the dealer as player 0
     whos_turn = 0;      
     pair<int, int> dealerHand;    // dealer gets a NULL hand
+    pthread_mutex_lock(&mutex_useDeck); // lock the deck ..............
     useDeck(id, dealerHand); // let the dealer use the deck
-   
-    // leave the dealer thread
-    pthread_mutex_lock(&mutex_dealerExit);  // lock the exit ............
-    while(!win) {
-        pthread_cond_wait(&cond_win, &mutex_dealerExit);
-    }      
-    pthread_mutex_unlock(&mutex_dealerExit); // unlock the exit .........
+    pthread_mutex_unlock(&mutex_useDeck); // lock the deck ...............  
+
+
     log_file << "Dealer exits round" << endl;
     pthread_exit(NULL);
 }
@@ -163,17 +159,17 @@ void * playerFunction(void * id) {
                 new_hand = player3_hand;
             break;
         case 1:
-            if( player_id == 1 ) 
+            if( player_id == 2 ) 
                 new_hand = player1_hand; 
-            else if( player_id == 2 ) 
+            else if( player_id == 3 ) 
                 new_hand = player2_hand;
             else 
                 new_hand = player3_hand;
             break;
         case 2:
-            if( player_id == 1 ) 
+            if( player_id == 3 ) 
                 new_hand = player1_hand; 
-            else if( player_id == 2 ) 
+            else if( player_id == 1 ) 
                 new_hand = player2_hand;
             else 
                 new_hand = player3_hand;
@@ -183,31 +179,28 @@ void * playerFunction(void * id) {
             break;
     }
    
-    while( win == 0 ) {
+    while( !win ) {
         pthread_mutex_lock(&mutex_useDeck); // lock the deck ...............  
-        while( player_id != whos_turn && win == 0 ) { // make players wait for their turn
+        while( (player_id != whos_turn) && win == false ) { // make players wait for their turn
             pthread_cond_wait(&condition_var, &mutex_useDeck); 
         }
       
-        if( win == 0 ) {   
-         useDeck(player_id, new_hand); // let players use the deck
+        if( !win ) {   
+            useDeck(player_id, new_hand); // let players use the deck
         }          
         pthread_mutex_unlock(&mutex_useDeck); // unlock the deck ...........
     }
-   
     // leave the player thread
     log_file << "Player exits round" << endl;
     pthread_exit(NULL); 
 }
 
 void useDeck(long id, pair<int,int> hand) {
-    if(id == 0) {
+    if(!id) {
         //shuffle the deck
         shuffleDeck();
-        printDeck();
-        dealCards();
-
         //deal the cards
+        dealCards();
     }
     else {
         // show hand
@@ -232,18 +225,17 @@ void useDeck(long id, pair<int,int> hand) {
         else {
             // randomly select discard and put it back in the deck
             int discard = rand() % 2;
-            if( discard == 0 ) {
+            if( discard == 0 && hand.first != -1 ) {
                 log_file << "Player " << id << ": discards " << hand.first << endl;
                 card_deck.insert(card_deck.begin(), hand.first);  // put card back in deck
                 hand.first = hand.second; // set card1 to remaining card value
             }     
             else {
-                log_file << "Player " << id << ": discards " << hand.second << endl;
-                card_deck.insert(card_deck.begin(), hand.second);
-            }   
-
-         // print the contents of the deck
-        printDeck();                 
+                if(hand.second != -1) {
+                    log_file << "Player " << id << ": discards " << hand.second << endl;
+                    card_deck.insert(card_deck.begin(), hand.second);
+                }
+            }                
         }      
     }  
     whos_turn++; // inc turn so next player may use the deck
@@ -254,25 +246,48 @@ void useDeck(long id, pair<int,int> hand) {
 
 void shuffleDeck() { // dealer swaps current card w/ rand card til all shuffled
     for( int i = 0; i < (card_deck.size() - 1); i++ ){
-        int randPos = i + (rand() % (card_deck.size() - i));  
         int temp = card_deck[i];
-        card_deck[i] = card_deck[randPos]; 
-        card_deck[randPos] = temp;
+        card_deck[i] = card_deck[i + (rand() % (card_deck.size() - i))]; 
+        card_deck[i + (rand() % (card_deck.size() - i))] = temp;
     }
 } // end function
 
 
 void dealCards() { // the dealer deals one card into each hand
     player1_hand.first = card_deck.back();
+    player1_hand.second = -1;
     card_deck.pop_back();
     player2_hand.first = card_deck.back();
+    player2_hand.second = -1;
     card_deck.pop_back();
     player3_hand.first = card_deck.back();
-    card_deck.pop_back();         
+    player3_hand.second = -1;
+    card_deck.pop_back();        
 } // end function
 
 void putPlayersCardsBack() {
-    card_deck.push_back(player1_hand.first);
-    card_deck.push_back(player2_hand.first);
-    card_deck.push_back(player3_hand.first);
+    if(player1_hand.first != -1) {
+        card_deck.push_back(player1_hand.first);
+        player1_hand.first = -1;
+    }
+    if(player2_hand.first != -1) {
+        card_deck.push_back(player2_hand.first);
+        player2_hand.first = -1;
+    }
+    if(player3_hand.first != -1) {
+        card_deck.push_back(player3_hand.first);
+        player3_hand.first = -1;
+    }
+    if(player1_hand.second != -1) {
+        card_deck.push_back(player1_hand.second);
+        player1_hand.first = -1;
+    }
+    if(player2_hand.second != -1) {
+        card_deck.push_back(player2_hand.second);
+        player2_hand.first = -1;
+    }
+    if(player3_hand.second != -1) {
+        card_deck.push_back(player3_hand.second);
+        player3_hand.first = -1;
+    }
 }
